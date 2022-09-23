@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+
+template <typename T>
+std::vector<T> removedupes(std::vector<T>& arr)
+{
+    std::vector<T> nodupes{};
+    int ind{0};
+    for(std::size_t i{0}; i < arr.size(); ++i)
+    {
+        int num = arr[i];
+        int rep = 0;
+        for(std::size_t k{i+1}; k < arr.size(); ++k)
+        {
+            if (num == arr[k])
+            {
+                ++rep;
+            }
+        }
+        if (rep == 0)
+        {
+            nodupes.resize(ind+1);
+            nodupes[ind] = arr[i];
+            ind++;
+        }
+    }
+    return nodupes;
+}
+
+int main() 
+{
+    std::vector<int> arr{3, 2, 9, 5, 1, 1, 4, 9, 3};
+    std::vector nodupes = removedupes(arr);
+    for (auto element : nodupes)
+        std::cout << element << ' ';
+}
