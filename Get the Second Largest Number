@@ -1,0 +1,32 @@
+#include <iostream>
+#include <array>
+#include<cstddef>
+
+template <typename T, std::size_t size>
+int secondLargest(const std::array<T, size>& arr)
+{
+    int larg{};
+    for (int num: arr)
+    {
+        if (num > larg)
+        {
+            larg = num;
+        }
+    }
+    int seclarg{};
+    for (int num: arr)
+    {
+        if (num > seclarg && num != larg)
+        {
+            seclarg = num;
+        }
+    }
+    return seclarg;
+}
+
+int main() 
+{
+    std::array arr{3, 2, 3, 1};
+    std::cout << "The second largest number is " << secondLargest(arr);
+    return 0;
+}
