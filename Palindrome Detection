@@ -1,0 +1,24 @@
+#include <iostream>
+#include <array>
+#include <string>
+
+template<typename T, auto U>
+std::string palindrome(std::array<T, U> arr)
+{
+    bool p = true;
+    for(std::size_t i{0}; i <= arr.size()/2; ++i)
+    {
+        if (arr[i] != arr[arr.size()-i-1])
+        {
+            p = false;
+        }
+    }
+    std::string ret = (p) ? "True" : "False";
+    return ret;
+}
+
+int main() 
+{
+    std::array<int, 4> arr{1, 2, 2, 1};
+    std::cout << palindrome(arr);
+}
