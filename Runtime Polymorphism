@@ -1,0 +1,29 @@
+#include <iostream>
+
+class Abc
+{
+public:
+    Abc()
+    {}
+    void print()
+    {
+        std::cout << "Abc";
+    }
+};
+
+class Def : public Abc
+{
+public:
+    Def()
+    {}
+    void print()
+    {
+        std::cout << "Def";
+    }
+};
+
+int main() 
+{
+    Def obj{};
+    obj.print();
+}
